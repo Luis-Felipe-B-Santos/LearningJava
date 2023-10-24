@@ -46,8 +46,6 @@ public class Main {
 		for (Employee x : empList) {
 			System.out.println(x);
 		}
-		
-		
 		sc.close();
 	}
 
