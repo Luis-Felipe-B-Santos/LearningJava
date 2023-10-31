@@ -3,6 +3,7 @@ package program;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 //aula sobre Instanciacao de datas
@@ -60,12 +61,31 @@ public class Main {
 		System.out.println("d09 = " + d09);
 		System.out.println();
 //-----------------------------------------------------------------------------------------------//
+		
 		//Instanciacao de data utilizando dados separados de dia, mes, ano
 		
 		int ano = 2023; int mes = 10; int dia = 7;
 		LocalDate d10 = LocalDate.of(ano, mes, dia);
 		//a funcao of pode passar variaveis, possibilitando instanciar com dados separados
 		System.out.println("d10 = " + d10);
+//-----------------------------------------------------------------------------------------------//
+		
+		//Tambem e possivel usar diretamente o formatter no print, sem ser no metodo parse
+		
+		LocalDate d11 = LocalDate.parse("2023-10-31");
+		System.out.println("d11 = " + d11.format(fmt1));
+//-----------------------------------------------------------------------------------------------//
+
+		//Para usar o formatter no Instant e necessario adicionar um fuso horario a ser considerado
+		//O codigo:
+		//Instant d12 = Instant.parse("2023-10-31T18:00Z", fmt3);
+		//System.out.println("d12 = " + d12.format(fmt1));
+		//Causaria um erro pois o formato fmt1 nao possui um fuso horario
+		// O correto e:
+		
+		Instant d12 = Instant.parse("2023-10-31T18:00Z");
+		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+		System.out.println("d12 = " + fmt3.format(d12));
 		
 	}
 
