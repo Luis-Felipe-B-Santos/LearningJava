@@ -83,10 +83,10 @@ public class Main {
 		//Causaria um erro pois o formato fmt1 nao possui um fuso horario
 		// O correto e:
 		
-		Instant d12 = Instant.parse("2023-10-31T18:00Z");
-		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
-		System.out.println("d12 = " + fmt3.format(d12));
-		
+		Instant d12 = Instant.parse("2023-10-31T18:30:20Z");
+		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm").withZone(ZoneId.systemDefault());
+		System.out.println("d12 nao formatado: " + d12);
+		System.out.println("d12 = " + fmt3.format(d12));		
 	}
 
 }
