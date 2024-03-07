@@ -33,12 +33,13 @@ public class Program {
 			checkIn = fmt.parse(sc.next());
 			System.out.print("Check-out date (dd/MM/yyyy): ");
 			checkOut = fmt.parse(sc.next());
-			reservation.updateDates(checkIn, checkOut);
-			System.out.println("Reservation: " + reservation);
-		}
-		
-		
-		
+			
+			String error = reservation.updateDates(checkIn, checkOut);
+			if (error != null) {
+				System.out.println("Error in reservation: " + error);
+			}else {
+				System.out.println("Reservation: " + reservation);}
+			}
 		sc.close();
 	}
 
